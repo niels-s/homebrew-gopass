@@ -12,8 +12,8 @@ class Gopass < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/tools/godep").install buildpath.children
-    cd("src/github.com/tools/godep") { system "go", "build", "-o", bin/"godep" }
+    (buildpath/"src/jus.tw.cx/gopass").install buildpath.children
+    cd("src/jus.tw.cx/gopass") { system "go", "build", "-o", bin/"gopass" }
 
     # elisp.install "contrib/emacs/password-store.el"
     # pkgshare.install "contrib"
