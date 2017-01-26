@@ -1,9 +1,9 @@
 class Gopass < Formula
   desc "Password manager"
-  # homepage "https://gopass.justwatch.com/"
-  url "http://central.int.justwatch.com/tarballs/gopass-develop-93ceffed0d11896161835130e8ec9c272abe7350.tar.gz"
-  sha256 "f1f3b25918dff876986f93313b569132ac004fde445e3438d1b560c8004da018"
-  # head "https://github.com/justwatchcom/gopass"
+  homepage "https://www.justwatch.com/gopass"
+  url "http://central.int.justwatch.com/tarballs/gopass-v1.0.0rc2-ae9a4505aff48ebf2caf70e82b7565e7bc1c4369.tar.gz"
+  sha256 "ccd97976634c89c0478366848f7f49c7d9ff616298043fe216a077a4a42d728c"
+  head "https://github.com/justwatchcom/gopass.git"
 
   depends_on "go" => :build
   depends_on "pwgen" => :run
