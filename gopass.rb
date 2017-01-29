@@ -6,7 +6,6 @@ class Gopass < Formula
   head "https://github.com/justwatchcom/gopass.git"
 
   depends_on "go" => :build
-  depends_on "pwgen" => :run
   depends_on "gnupg2" => :run
 
   def install
