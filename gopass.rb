@@ -1,8 +1,8 @@
 class Gopass < Formula
-  desc "Password manager"
+  desc "The slightly more awesome Standard Unix Password Manager for Teams."
   homepage "https://www.justwatch.com/gopass"
-  url "http://central.int.justwatch.com/tarballs/gopass-v1.0.0rc2-ae9a4505aff48ebf2caf70e82b7565e7bc1c4369.tar.gz"
-  sha256 "ccd97976634c89c0478366848f7f49c7d9ff616298043fe216a077a4a42d728c"
+  url "http://central.int.justwatch.com/tarballs/gopass-1.0.0-rc4.tar.gz"
+  sha256 "9d9aef5d1657515478714dfef87feecc74490827d51992955ed2e9d7d13e65d8"
   head "https://github.com/justwatchcom/gopass.git"
 
   depends_on "go" => :build
@@ -13,15 +13,11 @@ class Gopass < Formula
     (buildpath/"src/jus.tw.cx/gopass").install buildpath.children
 
     cd "src/jus.tw.cx/gopass" do
-      # system "make", "install"
-      system "go", "build", "-o", bin/"gopass"
+      ENV["PREFIX"] = "#{prefix}"
+      system "make", "install"
+      # bash_completion.install "bash_completion.bash"
+      # zsh_completion.install "zsh_completion.zsh"
     end
-
-    system bin/"gopass completion bash > bash_completion.bash"
-    system bin/"gopass completion zsh > zsh_completion.zsh"
-    bash_completion.install "bash_completion.bash"
-    zsh_completion.install "zsh_completion.zsh"
-
   end
 
   def caveats; <<-EOS.undent
@@ -53,6 +49,6 @@ class Gopass < Formula
     # system bin/"gopass", "generate", "Email/testing@foo.bar", "15"
     # assert File.exist?(".password-store/Email/testing@foo.bar.gpg")
 
-    assert_match version.to_s, shell_output("#{bin}/gopass --version")
+    assert_match version.to_s, shell_output("#{bin}/gopass version")
   end
 end
