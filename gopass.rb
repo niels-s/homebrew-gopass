@@ -10,9 +10,9 @@ class Gopass < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/justwatchcom/gopass").install buildpath.children
+    (buildpath/"src/github.com/justwatchcom/gopass").install buildpath.children
 
-    cd "src/justwatchcom/gopass" do
+    cd "src/github.com/justwatchcom/gopass" do
       ENV["PREFIX"] = prefix
       system "make", "install"
       # bash_completion.install "bash_completion.bash"
