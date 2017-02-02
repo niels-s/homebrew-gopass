@@ -15,14 +15,12 @@ class Gopass < Formula
     cd "src/github.com/justwatchcom/gopass" do
       ENV["PREFIX"] = prefix
       system "make", "install"
-      bash_completion.install "bash_completion.bash"
-      zsh_completion.install "zsh_completion.zsh"
     end
 
     # system bin/"gopass completion bash > bash_completion.bash"
     # system bin/"gopass completion zsh > zsh_completion.zsh"
-    # bash_completion.install "bash_completion.bash"
-    # zsh_completion.install "zsh_completion.zsh"
+    bash_completion.install "bash_completion.bash"
+    zsh_completion.install "zsh_completion.zsh"
   end
 
   def caveats; <<-EOS.undent
