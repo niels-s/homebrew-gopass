@@ -13,7 +13,7 @@ class Gopass < Formula
     (buildpath/"src/jus.tw.cx/gopass").install buildpath.children
 
     cd "src/jus.tw.cx/gopass" do
-      ENV["PREFIX"] = "#{prefix}"
+      ENV["PREFIX"] = prefix
       system "make", "install"
       # bash_completion.install "bash_completion.bash"
       # zsh_completion.install "zsh_completion.zsh"
