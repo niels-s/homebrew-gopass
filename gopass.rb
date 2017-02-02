@@ -19,8 +19,8 @@ class Gopass < Formula
 
     # system bin/"gopass completion bash > bash_completion.bash"
     # system bin/"gopass completion zsh > zsh_completion.zsh"
-    bash_completion.install "bash_completion.bash"
-    zsh_completion.install "zsh_completion.zsh"
+    bash_completion.install src/"bash_completion.bash"
+    zsh_completion.install src/"zsh_completion.zsh"
   end
 
   def caveats; <<-EOS.undent
