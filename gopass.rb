@@ -5,8 +5,16 @@ class Gopass < Formula
   sha256 "627d69aea54846e6572f5c9fa3abba2e046f96d5e0780e502c60d6a330ad8762"
   head "https://github.com/justwatchcom/gopass.git"
 
+  revision 1
+
+  option "with-gnupg21", "Depend on gnupg21 instead of gnupg2"
+  option "with-gnupg1", "Depend on gnupg1 instead of gnupg2"
+
   depends_on "go" => :build
-  depends_on "gnupg2" => :run
+
+  depends_on "gnupg2" => :run if build.without?("gnupg1") && build.without?("gnupg21")
+  depends_on "gnupg" => :run if build.with?("gnupg1")
+  depends_on "gnupg21" => :run if build.with?("gnupg21")
 
   def install
     ENV["GOPATH"] = buildpath
